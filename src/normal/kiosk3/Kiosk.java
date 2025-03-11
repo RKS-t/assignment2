@@ -54,6 +54,7 @@ public class Kiosk {
                 } catch (InputMismatchException e){
                     System.out.println("잘못된 주문번호 입니다.");
                     input.nextLine();
+                    return;
             }
         }
 

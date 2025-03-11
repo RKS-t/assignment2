@@ -99,10 +99,10 @@ public class Menu {
         System.out.println("[CHICKEN MENU]");
         for (MenuItem chicken : menuChickens) {
             int num = menuChickens.indexOf(chicken) + 1;
-            System.out.printf("%-20s %-10s %-50s\n",
+            System.out.printf("%-25s %-6s %-50s\n",
                     num + ". " + chicken.getName(),
-                    "|" + chicken.getPrice() + " 원|",
-                    chicken.getDescription());
+                    "|" + chicken.getPrice() , "원|   " +
+                            chicken.getDescription());
         }
         System.out.println("0. 뒤로가기");
     }

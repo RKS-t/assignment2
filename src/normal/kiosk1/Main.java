@@ -7,8 +7,8 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-
-            while (true) {
+        int order = 10;
+            while (0!=order) {
                 try {
                     System.out.println("[LOTTERIA MENU]");
                     System.out.println("1. NapolyBurger    | W 8.9 | 바질마요소스에 토마토소스로 맛을 낸 나폴리맛피아식 스페셜버거");
@@ -16,10 +16,9 @@ public class Main {
                     System.out.println("3. ShrimpBurger    | W 5.9 | 미니새우패티 2장의 새우 매니아를 위한버거");
                     System.out.println("4. Teriburger      | W 3.5 | 쇠고기패티에 달콤 짭짤한 데리소스를 더한 가성비 버거");
                     System.out.println("0. 종료     | 종료");
-                    int order = input.nextInt();
+                    order = input.nextInt();
                     if (order == 0) {
                         System.out.println("주문을 종료합니다.");
-                        break;
                     } else if (order == 1) {
                         System.out.println("NapolyBurger를 주문합니다.");
                     } else if (order == 2) {
@@ -34,6 +33,7 @@ public class Main {
                 } catch (InputMismatchException e) {
                     System.out.println("잘못된 주문번호 입니다.");
                     input.nextLine();
+                    return;
             }
 
         }

@@ -21,33 +21,34 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-
-            while (true) {
-                try {
-                    System.out.println("[LOTTERIA MENU]");
-                    for (MenuItem burger : menuItems) {
-                        int num = menuItems.indexOf(burger) + 1;
-                        System.out.printf("%-20s %-10s %-50s\n", num + ". " + burger.name, "|" + burger.price + " 원|", burger.description);
-                    }
-                    System.out.println("0. 종료     | 종료");
-                    int order = input.nextInt();
-                    if (order == 0) {
-                        System.out.println("주문을 종료합니다.");
-                        break;
-                    } else if (order == 1) {
-                        System.out.println("NapolyBurger를 주문합니다.");
-                    } else if (order == 2) {
-                        System.out.println("BibimBurger를 주문합니다.");
-                    } else if (order == 3) {
-                        System.out.println("ShrimpBurger를 주문합니다.");
-                    } else if (order == 4) {
-                        System.out.println("TeriBurger를 주문합니다.");
-                    } else {
-                        System.out.println("잘못된 주문번호 입니다.");
-                    }
-                } catch (InputMismatchException e) {
+        int order = 10;
+        while (0 != order) {
+            try {
+                System.out.println("[LOTTERIA MENU]");
+                for (MenuItem burger : menuItems) {
+                    int num = menuItems.indexOf(burger) + 1;
+                    System.out.printf("%-20s %-10s %-50s\n", num + ". " + burger.name, "|" + burger.price + " 원|", burger.description);
+                }
+                System.out.println("0. 종료     | 종료");
+                order = input.nextInt();
+                if (order == 0) {
+                    System.out.println("주문을 종료합니다.");
+                    break;
+                } else if (order == 1) {
+                    System.out.println("NapolyBurger를 주문합니다.");
+                } else if (order == 2) {
+                    System.out.println("BibimBurger를 주문합니다.");
+                } else if (order == 3) {
+                    System.out.println("ShrimpBurger를 주문합니다.");
+                } else if (order == 4) {
+                    System.out.println("TeriBurger를 주문합니다.");
+                } else {
                     System.out.println("잘못된 주문번호 입니다.");
-                    input.nextLine();
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("잘못된 주문번호 입니다.");
+                input.nextLine();
+                return;
             }
 
         }

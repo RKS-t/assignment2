@@ -8,11 +8,11 @@ import java.util.Scanner;
 public class Kiosk {
     Scanner input = new Scanner(System.in);
     //속성
-    List<MenuItem> menuItems = new ArrayList<>();
+    List<MenuItem> menuItems = new ArrayList<>(); // 메뉴 아이템을 담는 객체 컬렉션 생성
 
 
 
-    //생성자
+    //생성자 (메뉴 입력)
     public Kiosk(){
         menuItems.add(new MenuItem("NapolyBurger", 8900, "바질마요소스에 토마토소스로 맛을 낸 나폴리맛피아식 스페셜버거"));
         menuItems.add(new MenuItem("BibimBurger", 6900, "전주비빔밥 라이스번과 반숙란, 고추장 소스가 어우러진 버거"));
@@ -23,40 +23,41 @@ public class Kiosk {
 
     //함수
 
-    public void start( ){
-            int order =99;
+    public void start( ){ //키오스크 시작 함수
+            int order =-1;
             while (0 != order) {
-                try {
-                    System.out.println("[LOTTERIA MENU]");
-                    for (MenuItem burger : menuItems) {
-                        int num = menuItems.indexOf(burger) + 1;
-                        System.out.printf("%-20s %-10s %-50s\n",
-                                num + ". " + burger.name,
-                                "|" + burger.price + " 원|",
-                                burger.description);
-                    }
-                    System.out.println("0. 종료     | 종료");
 
+                System.out.println("[LOTTERIA MENU]");
+                for (MenuItem burger : menuItems) { //for문을 이용한 메뉴판 출력
+                    int num = menuItems.indexOf(burger) + 1;
+                    System.out.printf("%-20s %-10s %-50s\n",
+                            num + ". " + burger.name,
+                            "|" + burger.price + " 원|",
+                            burger.description);
+                }
+                System.out.println("0. 종료     | 종료");
+                try {
                     order = input.nextInt();
-                    if (order == 0) {
-                        System.out.println("주문을 종료합니다.");
-                    } else if (order == 1) {
-                        System.out.println("NapolyBurger를 주문합니다.");
-                    } else if (order == 2) {
-                        System.out.println("BibimBurger를 주문합니다.");
-                    } else if (order == 3) {
-                        System.out.println("ShrimpBurger를 주문합니다.");
-                    } else if (order == 4) {
-                        System.out.println("Teriburger를 주문합니다.");
-                    } else {
-                        System.out.println("잘못된 주문번호 입니다.");
-                    }
-                } catch (InputMismatchException e){
+                } catch (InputMismatchException e) { //잘못된 문자 예외 처리
                     System.out.println("잘못된 주문번호 입니다.");
                     input.nextLine();
-                    return;
+                    continue;
+                }
+                if (order == 0) { //주문에 따른 문자 출력
+                    System.out.println("주문을 종료합니다.");
+                } else if (order == 1) {
+                    System.out.println("NapolyBurger를 주문합니다.");
+                } else if (order == 2) {
+                    System.out.println("BibimBurger를 주문합니다.");
+                } else if (order == 3) {
+                    System.out.println("ShrimpBurger를 주문합니다.");
+                } else if (order == 4) {
+                    System.out.println("Teriburger를 주문합니다.");
+                } else {
+                    System.out.println("잘못된 주문번호 입니다.");
+                }
+
             }
-        }
 
     }
 

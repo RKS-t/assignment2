@@ -1,6 +1,9 @@
 package normal.kiosk4;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
 
 public class Kiosk {
     Scanner input = new Scanner(System.in);
@@ -40,7 +43,10 @@ public class Kiosk {
                         suborder = input.nextInt();
                         if(suborder<=4){
                             selectedOrder = menu.getMenuBurgers();
-                            System.out.println("선택한 메뉴는 " + selectedOrder.get(suborder-1).getName() + "입니다.");
+                            System.out.printf("%-25s %-10s %-50s\n", "선택한 메뉴 : " +
+                                            suborder + ". " + selectedOrder.get(suborder-1).getName(),
+                                    "|" + selectedOrder.get(suborder-1).getPrice() + " 원|",
+                                    selectedOrder.get(suborder-1).getDescription());
                         } else {
                             System.out.println("잘못된 주문번호 입니다.");
                         }
@@ -49,7 +55,10 @@ public class Kiosk {
                         suborder = input.nextInt();
                         if(suborder<=4){
                             selectedOrder = menu.getMenuDrinks();
-                            System.out.println("선택한 메뉴는 " + selectedOrder.get(suborder-1).getName() + "입니다.");
+                            System.out.printf("%-25s %-10s %-50s\n", "선택한 메뉴 : " +
+                                            suborder + ". " + selectedOrder.get(suborder-1).getName(),
+                                    "|" + selectedOrder.get(suborder-1).getPrice() + " 원|",
+                                    selectedOrder.get(suborder-1).getDescription());
                         } else {
                             System.out.println("잘못된 주문번호 입니다.");
                         }
@@ -58,7 +67,10 @@ public class Kiosk {
                         suborder = input.nextInt();
                         if(suborder<=4){
                             selectedOrder = menu.getMenuDesert();
-                            System.out.println("선택한 메뉴는 " + selectedOrder.get(suborder-1).getName() + "입니다.");
+                            System.out.printf("%-25s %-10s %-50s\n", "선택한 메뉴 : " +
+                                            suborder + ". " + selectedOrder.get(suborder-1).getName(),
+                                    "|" + selectedOrder.get(suborder-1).getPrice() + " 원|",
+                                    selectedOrder.get(suborder-1).getDescription());
                         } else {
                             System.out.println("잘못된 주문번호 입니다.");
                         }
@@ -67,7 +79,10 @@ public class Kiosk {
                         suborder = input.nextInt();
                         if(suborder<=4){
                             selectedOrder = menu.getMenuChickens();
-                            System.out.println("선택한 메뉴는 " + selectedOrder.get(suborder-1).getName() + "입니다.");
+                            System.out.printf("%-25s %-10s %-50s\n", "선택한 메뉴 : " +
+                                            suborder + ". " + selectedOrder.get(suborder-1).getName(),
+                                    "|" + selectedOrder.get(suborder-1).getPrice() + " 원|",
+                                    selectedOrder.get(suborder-1).getDescription());
                         } else {
                             System.out.println("잘못된 주문번호 입니다.");
                         }

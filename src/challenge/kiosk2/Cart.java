@@ -1,6 +1,7 @@
 package challenge.kiosk2;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -79,8 +80,12 @@ public class Cart {
 
             System.out.println("0. 뒤로가기           |"+(orderList.size()+1)+". 주문 초기화");
             System.out.println("몇 번째 주문을 취소하시겠습니까? 주문은 한개씩 취소됩니다.");
-
-            removeOrder = input.nextInt();
+            try {
+                removeOrder = input.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("잘못된 입력입니다.");
+                continue; //잘못된 입력이 들어오면 반복문 다시시작 하도록 예외처리
+            }
             int removeIndex = removeOrder - 1;
             if (removeOrder <= orderList.size() && removeOrder > 0) {
                 if (orderList.get(removeIndex).getCount().intValue() > 1) {

@@ -45,7 +45,7 @@ public class Cart {
                     orderList.add(menuItems);
                     System.out.println(menuItems.getName() + "이(가) 장바구니에 추가되었습니다.");
                 } else { //장바구니에 있으면 메뉴아이템 객체 count 요소를 +1 해주기
-                    orderList.get(getIndex).setCount(orderList.get(getIndex).getCount() + 1);
+                    orderList.get(getIndex).setCount(orderList.get(getIndex).getCount().intValue() + 1);
                     System.out.println(menuItems.getName() + "이(가) 장바구니에 한 개 더 추가되었습니다.");
                 }
 
@@ -62,7 +62,7 @@ public class Cart {
         for(int i = 0; i < orderList.size(); i++ ){
             System.out.print((i+1)+". ");
             orderList.get(i).showMenuItem();
-            totalPrice += orderList.get(i).getPrice()*orderList.get(i).getCount();
+            totalPrice += orderList.get(i).getPrice().intValue()*orderList.get(i).getCount().intValue();
         }
         System.out.println("[ Total ]");
         System.out.println(totalPrice + "원 입니다.");
@@ -73,23 +73,24 @@ public class Cart {
 
     public void removeOrder() {
         int removeOrder = -1;
-
-        while (removeOrder != 0 && !orderList.isEmpty()) {
+        int resetNumber = orderList.size()+1;
+        while (removeOrder != 0 && !orderList.isEmpty()) { //orderList가 비어있지 않을때만 반복
             showOrder();
+
             System.out.println("0. 뒤로가기           |"+(orderList.size()+1)+". 주문 초기화");
             System.out.println("몇 번째 주문을 취소하시겠습니까? 주문은 한개씩 취소됩니다.");
 
             removeOrder = input.nextInt();
             int removeIndex = removeOrder - 1;
             if (removeOrder <= orderList.size() && removeOrder > 0) {
-                if (orderList.get(removeIndex).getCount() > 1) {
-                    orderList.get(removeIndex).setCount(orderList.get(removeIndex).getCount() - 1);
+                if (orderList.get(removeIndex).getCount().intValue() > 1) {
+                    orderList.get(removeIndex).setCount(orderList.get(removeIndex).getCount().intValue() - 1);
                 } else {
                     orderList = IntStream.range(0, orderList.size()).filter(i -> i != (removeIndex))
                             .mapToObj(orderList::get)
                             .collect(Collectors.toList()); //이 경우 remove가 더 간편하지만 과제에 맞게 stream 이용
                 }
-            } else if (removeOrder == (orderList.size() + 1)) {
+            } else if (removeOrder == resetNumber) {
                 orderList.clear();
                 break;
             } else {

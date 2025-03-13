@@ -146,4 +146,4 @@ Communication
  ----
 
  ### 개발일지기록 
- [티스토리블로그](https://rudtjs2.tistory.com/category/%EA%B3%BC%EC%A0%9C)
+ [티스토리블로그](https://rudtjs2.tistory.com/category/%EA%B3%BC%EC%A0%9C2)

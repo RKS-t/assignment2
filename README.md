@@ -68,43 +68,81 @@ Communication
 
 ### 디렉토리
 📦src
+
  ┣ 📂challenge
+ 
  ┃ ┣ 📂kiosk1
+ 
  ┃ ┃ ┣ 📜Cart.java
+ 
  ┃ ┃ ┣ 📜Kiosk.java
+ 
  ┃ ┃ ┣ 📜Main.java
+ 
  ┃ ┃ ┣ 📜Menu.java
+ 
  ┃ ┃ ┗ 📜MenuItem.java
+ 
  ┃ ┣ 📂kiosk2
+ 
  ┃ ┃ ┣ 📜Cart.java
+ 
  ┃ ┃ ┣ 📜Customer.java
+ 
  ┃ ┃ ┣ 📜Kiosk.java
+ 
  ┃ ┃ ┣ 📜Main.java
+ 
  ┃ ┃ ┣ 📜Menu.java
+ 
  ┃ ┃ ┗ 📜MenuItem.java
+ 
  ┃ ┗ 📜Main.java
+ 
  ┣ 📂normal
+ 
  ┃ ┣ 📂kiosk1
+ 
  ┃ ┃ ┗ 📜Main.java
+ 
  ┃ ┣ 📂kiosk2
+ 
  ┃ ┃ ┣ 📜Main.java
+ 
  ┃ ┃ ┗ 📜MenuItem.java
+ 
  ┃ ┣ 📂kiosk3
+ 
  ┃ ┃ ┣ 📜Kiosk.java
+ 
  ┃ ┃ ┣ 📜Main.java
+ 
  ┃ ┃ ┗ 📜MenuItem.java
+ 
  ┃ ┣ 📂kiosk4
+ 
  ┃ ┃ ┣ 📜Kiosk.java
+ 
  ┃ ┃ ┣ 📜Main.java
+ 
  ┃ ┃ ┣ 📜Menu.java
+ 
  ┃ ┃ ┗ 📜MenuItem.java
+ 
  ┃ ┣ 📂kiosk5
+ 
  ┃ ┃ ┣ 📜Kiosk.java
+ 
  ┃ ┃ ┣ 📜Main.java
+ 
  ┃ ┃ ┣ 📜Menu.java
+ 
  ┃ ┃ ┗ 📜MenuItem.java
+ 
  ┃ ┗ 📜Main.java
+ 
  ┗ 📜Main.java
+ 
  ----
 
  ### 개발일지기록 

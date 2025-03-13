@@ -3,6 +3,8 @@ package challenge.kiosk2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Cart {
     Scanner input = new Scanner(System.in);
@@ -58,7 +60,7 @@ public class Cart {
         int totalPrice = 0;
         System.out.println("[ Orders ]");
         for(int i = 0; i < orderList.size(); i++ ){
-            System.out.print(i+". ");
+            System.out.print((i+1)+". ");
             orderList.get(i).showMenuItem();
             totalPrice += orderList.get(i).getPrice()*orderList.get(i).getCount();
         }
@@ -67,10 +69,37 @@ public class Cart {
         return totalPrice;
     }
 
-    public void resetOrder() {
-        orderList.clear();
+
+
+    public void removeOrder() {
+        int removeOrder = -1;
+
+        while (removeOrder != 0 && !orderList.isEmpty()) {
+            showOrder();
+            System.out.println("0. 뒤로가기           |"+(orderList.size()+1)+". 주문 초기화");
+            System.out.println("몇 번째 주문을 취소하시겠습니까? 주문은 한개씩 취소됩니다.");
+
+            removeOrder = input.nextInt();
+            int removeIndex = removeOrder - 1;
+            if (removeOrder <= orderList.size() && removeOrder > 0) {
+                if (orderList.get(removeIndex).getCount() > 1) {
+                    orderList.get(removeIndex).setCount(orderList.get(removeIndex).getCount() - 1);
+                } else {
+                    orderList = IntStream.range(0, orderList.size()).filter(i -> i != (removeIndex))
+                            .mapToObj(orderList::get)
+                            .collect(Collectors.toList()); //이 경우 remove가 더 간편하지만 과제에 맞게 stream 이용
+                }
+            } else if (removeOrder == (orderList.size() + 1)) {
+                orderList.clear();
+                break;
+            } else {
+                System.out.println("잘못된 선택입니다.");
+                continue;
+            }
+
+        }
+
+
     }
-
-
 
 }

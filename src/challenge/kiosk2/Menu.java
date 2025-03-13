@@ -76,14 +76,16 @@ public class Menu {
 
     public void showMenuItemList (int index){
         System.out.println("[" + menu.get(index) +" MENU]");
-        for (MenuItem menuItem : menuItemList.get(index)) {
-            int num = menuItemList.get(index).indexOf(menuItem) + 1;
-            System.out.printf("%-20s %-10s %-50s\n",
-                    num + ". " + menuItem.getName(),
-                    "|" + menuItem.getPrice() + " 원|",
-                    menuItem.getDescription());
-        }
+        menuItemList.get(index).stream()
+                .forEach(menuItem -> System.out.printf("%-25s %-10s %-50s\n", //스트림 foreach를 통해서 출력
+                        (menuItemList.get(index).indexOf(menuItem) + 1) + ". " + menuItem.getName(),
+                        "|" + menuItem.getPrice() + " 원|",
+                        menuItem.getDescription()));
         System.out.println("0. 뒤로가기");
+
+
+
+
     }
 
 

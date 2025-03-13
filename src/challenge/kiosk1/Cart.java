@@ -58,7 +58,7 @@ public class Cart {
         int totalPrice = 0;
         System.out.println("[ Orders ]");
         for(int i = 0; i < orderList.size(); i++ ){
-            System.out.print(i+". ");
+            System.out.print((i+1)+". ");
             orderList.get(i).showMenuItem();
             totalPrice += orderList.get(i).getPrice()*orderList.get(i).getCount();
         }
@@ -67,6 +67,7 @@ public class Cart {
         return totalPrice;
     }
 
+    //장바구니 목록 초기화
     public void resetOrder() {
         orderList.clear();
     }

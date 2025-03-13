@@ -1,6 +1,6 @@
 package challenge.kiosk2;
 
-public class MenuItem {
+public class MenuItem <T> {
 
     //속성
     private String name ;

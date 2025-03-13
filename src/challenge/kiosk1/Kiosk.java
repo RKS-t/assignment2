@@ -49,9 +49,9 @@ public class Kiosk {
                     System.out.println("잘못된 주문번호 입니다.");
                     continue;
                 }
-            } else if(!cart.getOrderList().isEmpty() && order == menu.getMenuItemList().size()+1){
+            } else if(!cart.getOrderList().isEmpty() && order == menu.getMenuItemList().size()+1){  //주문번호 메뉴 리스트보다 크기가+1일때
                 System.out.println("아래와 같이 주문하시겠습니까?");
-                int totalPrice = cart.showOrder();
+                int totalPrice = cart.showOrder(); //장바구니 보여주기 함수
                 System.out.println("1.주문       2.메뉴판");
                 int finalOrder =input.nextInt();
                 if(finalOrder==1){
@@ -60,7 +60,7 @@ public class Kiosk {
                     continue;
                 }
             } else if(!cart.getOrderList().isEmpty() && order == menu.getMenuItemList().size()+2){
-                    cart.resetOrder();
+                    cart.resetOrder(); //장바구니 초기화 함수
                 System.out.println("주문이 초기화 되었습니다.");
                 continue;
             } else {

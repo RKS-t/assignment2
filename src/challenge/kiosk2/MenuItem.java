@@ -52,6 +52,10 @@ public class MenuItem {
         this.count=count;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     //단일 아이템을 보여주는 함수 (카운트가 >1 일때는 카운트 까지 표시)
 
     public void showMenuItem( ) {

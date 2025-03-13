@@ -25,7 +25,6 @@ public class MenuItem {
 
     }
 
-
     //함수
 
     //게더
@@ -53,7 +52,6 @@ public class MenuItem {
     }
 
     //단일 아이템을 보여주는 함수 (카운트가 >1 일때는 카운트 까지 표시)
-
     public void showMenuItem( ) {
         if(count==1) {
             System.out.printf("%-25s %-6s %-50s\n",

@@ -54,8 +54,21 @@ public class Kiosk {
                 System.out.println("1.주문       2.메뉴판");
                 int finalOrder =input.nextInt();
                 if(finalOrder==1){
-                    System.out.println("주문이 완료되었습니다. 금액은 "+ totalPrice + "원 입니다.");
-                    order = 0;
+                    System.out.println("할인 정보를 입력해 주세요");
+                    for(Customer customer : Customer.values()){
+                        System.out.printf("%-10s %-10s\n", (customer.ordinal()+1) +". " + customer.getPersonal(),
+                                "할인율"+customer.getRate()+"%");
+                    }
+                    int discountOrder = input.nextInt();
+                    if(discountOrder<=Customer.values().length){
+                        int discountPrice = Customer.values()[discountOrder].discount(totalPrice);
+                        System.out.println("주문이 완료되었습니다. 금액은 " + discountPrice + "원 입니다.");
+                        order = 0;
+                    } else {
+                        System.out.println("잘못된 입력입니다.");
+                        continue;
+                    }
+
                 } else {
                     continue;
                 }

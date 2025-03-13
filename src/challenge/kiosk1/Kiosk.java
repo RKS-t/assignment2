@@ -47,6 +47,7 @@ public class Kiosk {
                     continue;
                 } else {
                     System.out.println("잘못된 주문번호 입니다.");
+                    continue;
                 }
             } else if(!cart.getOrderList().isEmpty() && order == menu.getMenuItemList().size()+1){
                 System.out.println("아래와 같이 주문하시겠습니까?");
@@ -55,7 +56,6 @@ public class Kiosk {
                 int finalOrder =input.nextInt();
                 if(finalOrder==1){
                     System.out.println("주문이 완료되었습니다. 금액은 "+ totalPrice + "원 입니다.");
-                    order = 0;
                 } else {
                     continue;
                 }
@@ -67,6 +67,7 @@ public class Kiosk {
                 System.out.println("잘못된 주문번호 입니다.");
                 continue;
             }
+            order = 0;
             System.out.println("키오스크를 종료합니다.");
         }
 
